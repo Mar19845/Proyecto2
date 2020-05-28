@@ -13,20 +13,12 @@ from sklearn.metrics.pairwise import linear_kernel
 
 from matplotlib import pyplot as plt
 import seaborn as sns
-#%matplotlib inline
 
 #read csv file with pandas
-#col_names = ['Cancion', 'Artista', 'Disco', 'Duracion', 'Genero', 'Year', 'Id', 'Idioma']
-#data = pd.read_csv('base_datos.csv',header=0, names=col_names)
-data = pd.read_csv('base_datos.csv',header=0)
-songsEsp = data[data["Idioma"]== "Espanol"]["Cancion"]
-songs= data["Cancion"]
 
-lista = []
-#for i in songs:
-#    lista.append(i)
-#for x in lista:
-#    print(x)
+data = pd.read_csv('base_datos.csv',header=0)
+
+
 
 feature_cols = ['Cancion', 'Artista', 'Genero']
 X = data[feature_cols] # Features
@@ -41,26 +33,27 @@ cosine_sim = linear_kernel(tfidf_matrix, tfidf_matrix)
 indices = pd.Series(data.index, index=data['Cancion']).drop_duplicates()
 
 def get_recommendations(title, cosine_sim=cosine_sim):
-    # Get the index of the movie that matches the title
+    # Get the index of the songs that matches the title
     idx = indices[title]
 
     # Get the pairwsie similarity scores of all movies with that movie
     sim_scores = list(enumerate(cosine_sim[idx]))
 
-    # Sort the movies based on the similarity scores
+    # Sort the songs based on the similarity scores
     sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)
 
-    # Get the scores of the 10 most similar movies
+    # Get the scores of the 10 most similar songs
     sim_scores = sim_scores[1:11]
 
-    # Get the movie indices
-    movie_indices = [i[0] for i in sim_scores]
+    # Get the music
+    music_indices = [i[0] for i in sim_scores]
 
-    # Return the top 10 most similar movies
-    return data['Cancion'].iloc[movie_indices]
+    # Return the top 10 most similar songs
+    return data['Cancion'].iloc[music_indices]
 
-print("La cancion que puso es:  Zafar")
-print("se recomineda (?)")
+
+#print("La cancion que puso es:  Zafar")
+#print("se recomineda (?)")
 print(get_recommendations("Zafar"))
 
 
