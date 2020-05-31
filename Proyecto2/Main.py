@@ -1,4 +1,5 @@
 from ClaseBaseDeDatosMusica import BaseMusica
+
 from neo4j import GraphDatabase
 print('''Bienvenido al Sistema que recomienda Musica''')
 print("")
@@ -18,7 +19,7 @@ while cat!='Salir':
 7. Fin de programa
 
 Ingrese la funcion que desea usar:  ''')
-    if cat=='6':
+    if cat=='7':
         print("")
         print("Gracias por hacer uso del sistema que recomineda Musica")
         break
@@ -39,6 +40,11 @@ Ingrese la funcion que desea usar:  ''')
         cancion = (input("Ingrese la cancion: "))
         n = BaseMusica()
         print(n.RecomendarCancion(cancion))
+    if cat=='6':
+        print("")
+        from Grafo import grafos
+        s = grafos()
+        print(s.Diagrama())
     else:
         print("")
         print("Porvafor seleccionar una opcion valida")
