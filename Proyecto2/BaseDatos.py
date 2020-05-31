@@ -16,3 +16,4 @@ def _create_and_return_greeting(tx, message):
                     "SET a.message = $message "
                     "RETURN a.message + ', from node ' + id(a)", message=message)
     return result.single()[0]
+

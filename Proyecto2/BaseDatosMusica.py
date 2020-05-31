@@ -57,8 +57,14 @@ def get_recommendations(title, cosine_sim=cosine_sim):
 #print(get_recommendations("Zafar"))
 
 
+from User import Usuario
 #convertir values to a list 
 a_list = data['Cancion'].tolist()
 for i in a_list:
     print(i)
-
+    
+n1 = Usuario()
+n1.CrearUser("perro","123")
+n1.login("perro","123")
+print("")
+print(n1.boolean)

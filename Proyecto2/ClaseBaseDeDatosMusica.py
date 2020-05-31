@@ -25,7 +25,7 @@ class BaseMusica:
     cosine_sim = linear_kernel(tfidf_matrix, tfidf_matrix)
     indices = pd.Series(data.index, index=data['Cancion']).drop_duplicates()
     
-    print("se creo la clase paper")
+    print("")
     
     def RecomendarCancion(self,title, cosine_sim=cosine_sim):
         # Get the index of the songs that matches the title
