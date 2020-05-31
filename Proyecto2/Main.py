@@ -1,13 +1,16 @@
 from ClaseBaseDeDatosMusica import BaseMusica
-
+from Grafo import grafos
 from neo4j import GraphDatabase
+from User import Usuario
 print('''Bienvenido al Sistema que recomienda Musica''')
 print("")
 print('''Los Creadores Juan Marroquin Y Carlos Raxtum le damos la bienvenida
 Esperamos le guste el sistema de recomendacion
 
 A continuacion el menu''')
+
 cat=''
+n1 = Usuario()
 while cat!='Salir':
     cat=input('''
 1. Crear Usuario
@@ -24,11 +27,15 @@ Ingrese la funcion que desea usar:  ''')
         print("Gracias por hacer uso del sistema que recomineda Musica")
         break
     if cat=='1':
-        print("")
-        print("Cerga")
+        id= (input("Ingrese el nombre de Usuario que quiere usar: "))
+        pas = (input("Ingrese su nuevo password: "))
+        n1.CrearUser(id,pas)
     if cat=='2':
-        print("")
-        print("2")
+        id= (input("Ingrese el nombre de Usuario: "))
+        pas = (input("Ingrese su nuevo password: "))
+        n1.login(id,pas)
+        if(n1.boolean == True):
+            print("PPPPP")
     if cat=='3':
         print("")
         print("3")
@@ -42,7 +49,7 @@ Ingrese la funcion que desea usar:  ''')
         print(n.RecomendarCancion(cancion))
     if cat=='6':
         print("")
-        from Grafo import grafos
+        #from Grafo import grafos
         s = grafos()
         print(s.Diagrama())
     else:
