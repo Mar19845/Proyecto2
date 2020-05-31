@@ -39,4 +39,4 @@ class BaseMusica:
     
 ```
 ## Uso
-Para utilizar el programa se debe leer y compilar el archivo Main.py
+Para utilizar el programa se debe leer y compilar el archivo Main.py y tener todos los archivos en la misma carpeta
