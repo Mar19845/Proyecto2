@@ -54,8 +54,11 @@ def get_recommendations(title, cosine_sim=cosine_sim):
 
 #print("La cancion que puso es:  Zafar")
 #print("se recomineda (?)")
-print(get_recommendations("Zafar"))
+#print(get_recommendations("Zafar"))
 
 
-
+#convertir values to a list 
+a_list = data['Cancion'].tolist()
+for i in a_list:
+    print(i)
 

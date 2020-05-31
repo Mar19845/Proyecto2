@@ -27,7 +27,7 @@ class BaseMusica:
     
     print("se creo la clase paper")
     
-    def get_recommendations(self,title, cosine_sim=cosine_sim):
+    def RecomendarCancion(self,title, cosine_sim=cosine_sim):
         # Get the index of the songs that matches the title
         idx = self.indices[title]
 
@@ -46,5 +46,5 @@ class BaseMusica:
         # Return the top 10 most similar songs
         return self.data['Cancion'].iloc[music_indices]
     
-x = BaseMusica()
-print(x.get_recommendations("Zafar"))
+#x = BaseMusica()
+#print(x.RecomendarCancion("Zafar"))
