@@ -1,60 +1,48 @@
 # Proyecto2
 Sistema de recomendacion musical
 
-## Webhook
-El archivo index.js ejecuta el servidor que funciona como  webhook en el Port 5000. Este sirve como intermediario entre Facebook Messenger y Dialogflow.
+## Overview
+Este código pertenece a un sistema de recomendacion musical. El sistema se fija en aspectos como el género y el idioma para
+lograr un filtrado exitoso en las recomendaciones.
+
+## Base de datos
+El archivo base_datos.csv contiene una base de datos con canciones, sus artistas, el género de cada una, el disco,
+la duracion y el año en que cada cancion fue lanzada.
+
+## Contacto con la base de datos
+El archivo ClaseBaseDeDatosMusica.py contiene las funciones para poder leer el archivo base_datos.csv y de esta manera 
+efectuar las operaciones tales como recomendar, mostrar y eliminar cancion.
 ```
-node index.js
+class BaseMusica:
+    ***
+    data = pd.read_csv('base_datos.csv',header=0)
+    ***
+    def RecomendarCancion(self,title, cosine_sim=cosine_sim)
+    def MostrarInfo(self)
+    def EliminarCancion(self)
+    
 ```
 
-## Rutina de Carga de Conocimiento
-El archivo carga.js consulta todos los intents y sus respectivos mensajes a la base de datos MySQL y crea dentro de Dialogflow los mismos intents.
-```
-node carga.js
-```
-El archivo UpdateDB.js identifica mensajes dentro de los intents de Dialogflow que no estan almacenados en la base de datos. Inmediatamente inserta estos valores en la base de datos.
-```
-node UpdateDB.js
-```
+## Aspectos Relevantes para el funcionamiento del sistema
+### Dependencias necesarias para el funcionamiento del programa
+pandas
+sklearn
+numpy
+matplotlib
+seaborn
+neo4j
+networkx
 
-## Aspectos Relevantes para la Configuración en Intergación
-### Iniciar e Integrar Webhook
-En la línea de comandos de ngrok ejectar el servidor del webhook.
+### Clase base de datos
+Dentro del archivo ClaseBaseDeDatosMusica.py leer el archivo .csv con pandas
 ```
-ngrok http 5000
+class BaseMusica:
+    data = pd.read_csv('base_datos.csv',header=0)
+    tfidf = TfidfVectorizer()
+    tfidf_matrix = tfidf.fit_transform(data['Genero'])
+    cosine_sim = linear_kernel(tfidf_matrix, tfidf_matrix)
+    indices = pd.Series(data.index, index=data['Cancion']).drop_duplicates()
+    
 ```
-Luego se mostrará el link al tunel del servidor. Este será ingresado en fbdev dentro de la configuración de webhook.
-//Insertar imagen de configuración fvdeb.
-
-### Conexión con la Base de Datos
-Dentro del archivo [conexion.js](https://github.com/wsaldana/ChatBotPythones/blob/master/conexion.js) configurar los parametros de conexión
-```
-var con = mysql.createConnection({
-  host: "<HOST>",
-  user: "<USUARIO>",
-  password: "<CONTRASEÑA>",
-  database: "<NOMBRE DE LA BASE DE DATOS>"
-});
-```
-### Dialogflow en la Rutina de Carga
-El POST que se realiza para cargar el conocimiento de la base de datos a Dialogflow se encuentra en el archivo [PostNewData.js](https://github.com/wsaldana/ChatBotPythones/blob/master/PostNewData.js), y el GET por el cual obtenemos la información de los intents de Dialogflow se ubica en el archivo [UpdateDB.js](https://github.com/wsaldana/ChatBotPythones/blob/master/UpdateDB.js). En ambos se deberá de especificar el token de autorización específico del agente de Dialogflow con el que trabajaremos. Este parámetro lo encontraremos en el header del método.
-```
-headers: {
-            'Authorization': 'Bearer <TOKEN DE AUTORIZACIÓN API DE DIALOGFLOW>',
-            'Content-Type': 'application/json; charset=UTF-8'
-        }
-```
-### Configuraciones del Webhook
-Se debe de realizar la misma declaración del Token de autorización del API de Dialogflow en el header que se encuentra en el archivo [index.js](https://github.com/wsaldana/ChatBotPythones/blob/master/index.js).
-Además, en el mismo archivo se debe de especificar el Token de autorización de Facebook developer.
-```
-var clientServerOptions2={
-          uri: "https://graph.facebook.com/v4.0/me/messages?access_token=<<TOKEN DE AUTORIZACIÓN DE FBDEV>>",
-          body: ResMsg,
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json; charset=UTF-8'
-          }
-```
-
-Si no conocemos el token del API de Dialogflow, se puede encontrar en la configuración de nuestro agente en Dialogflow.
+## Uso
+Para utilizar el programa se debe leer y compilar el archivo Main.py
