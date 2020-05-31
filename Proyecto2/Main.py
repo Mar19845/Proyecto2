@@ -53,10 +53,12 @@ si no presione 2''')
             
     if cat=='3':
         print("")
-        print("3")
+        n = BaseMusica()
+        print(n.EliminarCancion())
     if cat=='4':
         print("")
-        print("pp")
+        n = BaseMusica()
+        print(n.MostrarInfo())
     if cat=='5':
         print("")
         cancion = (input("Ingrese la cancion: "))

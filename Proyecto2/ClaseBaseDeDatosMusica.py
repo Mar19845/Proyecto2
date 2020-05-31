@@ -46,5 +46,17 @@ class BaseMusica:
         # Return the top 10 most similar songs
         return self.data['Cancion'].iloc[music_indices]
     
+    def MostrarInfo(self):
+        datos=pd.read_csv('base_datos.csv',header=0)
+        print(datos)
+        
+    def EliminarCancion(self):
+        datos = pd.read_csv('base_datos.csv')
+        val = pd.DataFrame(datos)
+
+        cancion = input("Ingrese la cacion a eliminar");
+        Numfila = val[val['Cancion']==cancion]['Id']
+        print(Numfila)
+    
 #x = BaseMusica()
 #print(x.RecomendarCancion("Zafar"))
