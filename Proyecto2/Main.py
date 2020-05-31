@@ -10,6 +10,7 @@ Esperamos le guste el sistema de recomendacion
 A continuacion el menu''')
 
 cat=''
+cat2= ""
 n1 = Usuario()
 while cat!='Salir':
     cat=input('''
@@ -32,10 +33,24 @@ Ingrese la funcion que desea usar:  ''')
         n1.CrearUser(id,pas)
     if cat=='2':
         id= (input("Ingrese el nombre de Usuario: "))
-        pas = (input("Ingrese su nuevo password: "))
+        pas = (input("Ingrese su password: "))
         n1.login(id,pas)
         if(n1.boolean == True):
-            print("PPPPP")
+            while cat2!='Salir':
+                print("gracias")
+                cat2 = "Salir"
+        else:
+            print('''No se pudo Inciar Sesion
+Olvido su contraseña?
+Desea cambiarla presione 1
+si no presione 2''')
+            x = input()
+            if(x == "1"):
+                pas = (input("Ingrese su nuevo password: "))
+                n1.ChangePassWord(id,pas)
+            else:
+                print("")
+            
     if cat=='3':
         print("")
         print("3")
