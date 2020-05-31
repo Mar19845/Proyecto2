@@ -39,7 +39,7 @@ class BaseMusica:
     
 ```
 ### Para cargar el programa es necesario importar los siguientes paquetes
-Dentro del archivo ClaseBaseDeDatosMusica.py leer el archivo .csv con pandas
+Dentro del archivo ClaseBaseDeDatosMusica.py
 ```
 import pandas as pd 
 import numpy as np  
@@ -55,6 +55,37 @@ from matplotlib import pyplot as plt
 import seaborn as sns
     
 ```
-
+Dentro del archivo Grafo.py
+```
+import networkx as nx
+import matplotlib.pyplot as plt
+    
+```
+Dentro del archivo BaseDeDatosMusica.py
+```
+import pandas as pd #Dataframe, series
+import numpy as np  #Scientfic computing  packgs - arrays
+from sklearn import tree
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import linear_kernel
+from matplotlib import pyplot as plt
+import seaborn as sns
+    
+```
+Dentro del archivo BaseDeDatosMusica.py
+```
+import pandas as pd #Dataframe, series
+import numpy as np  #Scientfic computing  packgs - arrays
+from sklearn import tree
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import linear_kernel
+from matplotlib import pyplot as plt
+import seaborn as sns
+    
+```
 ## Uso
 Para utilizar el programa se debe leer y compilar el archivo Main.py y tener todos los archivos en la misma carpeta
