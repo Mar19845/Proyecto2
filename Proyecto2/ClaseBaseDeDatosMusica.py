@@ -55,7 +55,7 @@ class BaseMusica:
         val = pd.DataFrame(datos)
 
         cancion = input("Ingrese la cacion a eliminar");
-        Numfila = val[val['Cancion']==cancion]['Id']
+        Numfila = val[val['Cancion']==cancion]['Idd']
         print(Numfila)
     
 #x = BaseMusica()
