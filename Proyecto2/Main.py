@@ -14,7 +14,8 @@ while cat!='Salir':
 3. Eliminar Datos de la base de Datos
 4. Ver Las Canciones Disponible
 5. Recomendar canciones similares a una Cancion que uste ponga?
-6. Fin de programa
+6. Mostrar Grafo de relaciones
+7. Fin de programa
 
 Ingrese la funcion que desea usar:  ''')
     if cat=='6':
