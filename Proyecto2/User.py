@@ -1,23 +1,28 @@
 class Usuario:
     id = ""
     pas = ""
-    boolean = 0
+    boolean = False
+    #iniciar el  objecto
     def __init__(self):
         print("creado")
+    #metodo crear ususario
     def CrearUser(self, id, pas):
         self.id = id
         self.pas = pas
-        self.boolean = 1
         print("Usuario",id, "ha sido creado")
-
+    #metodo login
     def login(self, id, pas):
         print (self.id)
-        if self.id == id and self.pas == pas and boolean == 1:
+        if self.id == id and self.pas == pas and self.boolean == False:
+            self.boolean = True
             print ("Login success!")
         else:
+            boolean = False
             print("No se encuentra ese Usario")
+    def ChangePassWord(self,id,pas):
+        if self.id == id:
+            self.pas = pas
+        else:
+            print("El usuario no se encuentra, no se puede cambiar la contrasena")
+        
 
-log = Usuario()
-#log.CrearUser("Peru","123")
-log.login(input("Enter Login ID: "),
-          input("Enter password: "))
