@@ -1,9 +1,6 @@
 # Proyecto2
 Sistema de recomendacion musical
 
-# ChatBotPythones
-ChatBot AI utilizando el Procesador de Lenguaje Natual "Dialogflow" integrado en Facebook Messenger, programado en Node.js. 
-
 ## Webhook
 El archivo index.js ejecuta el servidor que funciona como  webhook en el Port 5000. Este sirve como intermediario entre Facebook Messenger y Dialogflow.
 ```
