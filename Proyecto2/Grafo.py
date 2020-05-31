@@ -2,6 +2,14 @@
 import networkx as nx
 #Se importa la libreria pyplot de matplotlib como plt
 import matplotlib.pyplot as plt
+class Graph_manager:
+    #Inicialización
+    def __init__(self):
+        #Conexion y configuracion de python para neo4j
+        uri             = "bolt://localhost:7687"
+        userName        = "EstructuraDeDatos"
+        password        = "123"
+        self.db = GraphDatabase.driver(uri, auth=(userName, password), encrypted=False)
 
 class grafos:
     def __init__(self):

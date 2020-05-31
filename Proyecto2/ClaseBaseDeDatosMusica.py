@@ -47,16 +47,24 @@ class BaseMusica:
         return self.data['Cancion'].iloc[music_indices]
     
     def MostrarInfo(self):
-        datos=pd.read_csv('base_datos.csv',header=0)
-        print(datos)
+        #datos=pd.read_csv('base_datos.csv',header=0)
+        print(self.data)
         
     def EliminarCancion(self):
-        datos = pd.read_csv('base_datos.csv')
-        val = pd.DataFrame(datos)
+        val = pd.DataFrame(self.data)
 
         cancion = input("Ingrese la cacion a eliminar");
-        Numfila = val[val['Cancion']==cancion]['Idd']
-        print(Numfila)
+        Numfila = int(val[val['Cancion']==cancion]['Idd'])
+        Numfila = Numfila - 1
+        MaxTamaño = len(self.data.index)
+        if (MaxTamaño>=Numfila):
+            self.data.drop(self.data.index[[Numfila]], inplace = True)
+            print("Cancion Eliminada con exito") 
+        else:
+            print("Cancion no encontrada")
+    def AgregarCancion(self):
+        dic={""}
+        
     
 #x = BaseMusica()
 #print(x.RecomendarCancion("Zafar"))
