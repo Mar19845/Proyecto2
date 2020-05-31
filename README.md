@@ -38,5 +38,23 @@ class BaseMusica:
     indices = pd.Series(data.index, index=data['Cancion']).drop_duplicates()
     
 ```
+### Para cargar el programa es necesario importar los siguientes paquetes
+Dentro del archivo ClaseBaseDeDatosMusica.py leer el archivo .csv con pandas
+```
+import pandas as pd 
+import numpy as np  
+
+from sklearn import tree
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.model_selection import train_test_split
+
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import linear_kernel
+
+from matplotlib import pyplot as plt
+import seaborn as sns
+    
+```
+
 ## Uso
 Para utilizar el programa se debe leer y compilar el archivo Main.py y tener todos los archivos en la misma carpeta
