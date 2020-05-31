@@ -25,13 +25,7 @@ class BaseMusica:
 
 ## Aspectos Relevantes para el funcionamiento del sistema
 ### Dependencias necesarias para el funcionamiento del programa
-\npandas
-\nsklearn
-\nnumpy
-\nmatplotlib
-\nseaborn
-\nneo4j
-\nnetworkx
+pandas, sklearn, numpy, matplotlib, seaborn, neo4j, networkx
 
 ### Clase base de datos
 Dentro del archivo ClaseBaseDeDatosMusica.py leer el archivo .csv con pandas
